@@ -42,6 +42,15 @@ const es6MultiLine = `New ES6 string
 with new line`
 console.log(TraditionalMultiLine)
 console.log(es6MultiLine)
+
+const age = 16;
+//Shortcut to access emojis in windows: windows key + .
+if (age >= 18) {
+    console.log("Jose can start driving license 🚗");
+} else {
+    const yearsLeft = 18 - age;
+    console.log(`Jose is too young. Wait another ${yearsLeft} years 😊`);
+}
 /*
  multi line comments
  for many lines

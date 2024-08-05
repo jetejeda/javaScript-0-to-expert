@@ -73,4 +73,7 @@ Template literals were introduced in ES6. With them we can write a string in a m
 const newIntroduction = `I'm ${firstName}, a ${(currentYear - birthYear)} years old ${job}!`;
 ```
 
-Another great use case for template literals is for creating multi-line strings. 
+Another great use case for template literals is for creating multi-line strings.
+
+# The if statement
+It's a control structure, it allow us to have more control over the way that our code is executed. With the if statement we can control which blocks of code our program will have to execute and the blocks that should not execute, all based on the conditions defined for the if statement.
