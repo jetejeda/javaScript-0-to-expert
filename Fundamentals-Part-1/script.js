@@ -23,6 +23,25 @@ console.log(typeof null);
 let x, y;
 x = y = 25 - 10 - 5;
 console.log(x, y)
+
+//string templates
+const firstName = "Jose";
+const job = "Data Engineer";
+const birthYear = 1999;
+const currentYear = 2024
+
+//Traditional approach 
+const introduceYourself = "I'm " + firstName + ', a ' + (currentYear - birthYear) + " years old " + job + "!";
+//Template literals
+const newIntroduction = `I'm ${firstName}, a ${(currentYear - birthYear)} years old ${job}!`;
+console.log(newIntroduction)
+//Muli-line strings before and after:
+const TraditionalMultiLine = "traditional string with \n\
+new line"
+const es6MultiLine = `New ES6 string 
+with new line`
+console.log(TraditionalMultiLine)
+console.log(es6MultiLine)
 /*
  multi line comments
  for many lines

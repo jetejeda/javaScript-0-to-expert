@@ -61,3 +61,16 @@ Is the order in which operations are executed. The highest precedence is given t
 
 [operator table from mozilla (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
 
+# Strings and template literals
+We can create strings with template literals. Each string must start and end with the same symbol " or '. Therefore, if we need a string with " inside of it we can start it with a ' and vice versa:
+```js
+let sayHi = "Hey! I'm Jose"
+let secondExample = 'They are called "devs"'
+```
+
+Template literals were introduced in ES6. With them we can write a string in a more normal way, and then insert the variables directly into the string. For doing so we just have to create the string with the ``symbols and inside of them, we can add all the javaScript code that we want/need inside ${}.
+```js
+const newIntroduction = `I'm ${firstName}, a ${(currentYear - birthYear)} years old ${job}!`;
+```
+
+Another great use case for template literals is for creating multi-line strings. 
