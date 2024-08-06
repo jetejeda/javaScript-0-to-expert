@@ -86,8 +86,8 @@ console.log(`Loose equal operator: "18" == 18: `, "18" == 18)
 console.log('Strict equal operator: "18" === 18: ', "18" === 18)
 
 //Alternative to retrieve data from the user
-const myData = prompt("What's your favorite number?")
-console.log(myData)
+//const myData = prompt("What's your favorite number?")
+//console.log(myData)
 
 // Logical operators
 const hasDriversLicense = false;
@@ -95,6 +95,31 @@ const hasGoodVision = true;
 console.log(hasDriversLicense && hasGoodVision);
 console.log(hasDriversLicense || hasGoodVision);
 console.log(!hasDriversLicense && hasGoodVision);
+
+// Switch statement
+let day = "Monday";
+switch (day) {//This is equivalent to day === "Monday"
+    case "Monday":
+        console.log("your Monday plan!");
+        break;
+    case "Tuesday":
+        console.log("your Tuesday plan!");
+        break;
+    case "Wednesday":
+    case "Thursday":
+        console.log("your plan for Wednesday and Thursday!");
+        break;
+    case "Friday":
+        console.log("It's Friday!");
+        break;
+    case "Wednesday":
+    case "Thursday":
+        console.log("Relax on weekends");
+        break;
+    default:
+        console.log("Not a valid day :(");
+        break;
+}
 /*
  multi line comments
  for many lines

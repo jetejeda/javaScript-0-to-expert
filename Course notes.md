@@ -117,3 +117,9 @@ On the other hand, there is the loose equality operator (==) that actually does 
 # Boolean logic
 Using true and false values to solve complex logical problems. In order to do that we use several logical operators to combine true and false values. The main boolean operators are AND, OR and NOT, but there are many more. The NOT operator actually has precedence over the AND and OR operators.
 
+# The switch statement
+is an alternative way of writing a complicated if/else statement. We use it when we want to compare one value with multiple options. The switch statement does an strict comparison between the value and each case. It's main purpose is for quality, not actually for comparing stuff.
+
+With the switch statement, we need a break for every switch options, this is because all the cases are within the same code block, so without the break, it will also execute the rest of the cases until it finds a break or until the switch statement has finished.
+
+
