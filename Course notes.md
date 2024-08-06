@@ -139,3 +139,16 @@ let myAge = 24;
 //conditional ? true : false
 myAge >= 18 ? console.log("You can get your driver license") : console.log("Wait a few years!")
 ```
+
+# JavaScript Releases: ES5, ES6+ and ESNext
+ECMA is a private organization in charge of standardize JavaScript. ECMA script is used to refer to any of the standard versions, while JavaScript is used when talking about the language in practice.
+
+In 2105 was released ES6/ES2015 which is the biggest update to the language ever. Since this release, ECMAScript changed to an annual release cycle in order to ship less features per update. There is one particularity about JavaScript releases, which is pretty unique for any programming language and that is backwards compatibility all the way to ES1. This means that there is almost never anything removed from the language, but only added in new versions, just add incremental updates. This comes with problems because there are tons of old bugs and weird things in the language.
+
+Browsers that users are using might be old and it's said that JavaScript is not forwards compatible, this triggers the question, how can we use modern JavaScript today?
+
+For answering this question we need to consider two distinct scenarios which are development and production. The development phase is simply when we are developing the site on our computer. To ensure that we can use the latest JavaScript features in this face. All we have to do is use the latest version of the Google Chrome browser.
+
+Production is when the web application is finished, deployed in the internet and it's then running in your users browser. This is where problems might appear, because this is the part that we actually can't control, for example, we can't control which browser our users will be using, and we also can't assume that all our users always use the latest browsers. The solution to this problem is to basically convert these modern JavaScript versions back to ES5 using a process called "transpile" and "polyfill". In this course we will be using BABEL for this process.
+
+Because of this process it's important to have the basis of ES5, so that we know how our ES6+ code will actually work behind the scenes.
