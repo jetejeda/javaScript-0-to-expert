@@ -88,6 +88,13 @@ console.log('Strict equal operator: "18" === 18: ', "18" === 18)
 //Alternative to retrieve data from the user
 const myData = prompt("What's your favorite number?")
 console.log(myData)
+
+// Logical operators
+const hasDriversLicense = false;
+const hasGoodVision = true;
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense && hasGoodVision);
 /*
  multi line comments
  for many lines
