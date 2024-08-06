@@ -120,6 +120,11 @@ switch (day) {//This is equivalent to day === "Monday"
         console.log("Not a valid day :(");
         break;
 }
+
+// The ternary operator
+let myAge = 24;
+const drink = myAge >= 18 ? 'wine 🍷' : 'water 💧';
+console.log(`Hey, since I am ${myAge}, I would like to drink ${drink}`);
 /*
  multi line comments
  for many lines

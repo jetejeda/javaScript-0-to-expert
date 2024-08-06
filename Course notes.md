@@ -122,4 +122,20 @@ is an alternative way of writing a complicated if/else statement. We use it when
 
 With the switch statement, we need a break for every switch options, this is because all the cases are within the same code block, so without the break, it will also execute the rest of the cases until it finds a break or until the switch statement has finished.
 
+# Statements and Expressions
+An expression is a piece of code that produces a value. An statement is a bigger piece of code which does not produce a value on itself. It's important to know the difference because JavaScript expects statements and expressions in different places.
 
+For example inside a template literal we can only insert expressions, but not statements.
+
+# The Conditional (Ternary) Operator
+It allows us to write something similar to an if/else statement, but all in one line. It is called Ternary because is composed of three parts, the conditional, the true part (equivalent to what will do inside an if statement) and the false part.
+
+This is an operator, this means, that it always produces a value. In other words, an operator is an expression. This means that we can assign the result to a variable, so it's very useful to conditionally declare variables. 
+
+Keep in mind that the ternary operator is not thought as a replacement of the if/else statements. We still need if/else statement all the time. The ternary operator is perfect when we just need t take a quick decision.
+
+```js
+let myAge = 24;
+//conditional ? true : false
+myAge >= 18 ? console.log("You can get your driver license") : console.log("Wait a few years!")
+```
