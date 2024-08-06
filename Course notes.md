@@ -108,3 +108,12 @@ This values are not exactly false initially, but they will become when converted
 
 In practice, a conversion to Boolean is always implicit, not explicit, this means that we always rely on coercion.
 
+# Equality Operators: == vs. ===
+
+The === operator is called the strict operator because it does not perform type coercion, so, it will only return true when both values are exactly the same. 
+
+On the other hand, there is the loose equality operator (==) that actually does type coercion. __As a general rule for clean coding, we should avoid the loose equality operator as much as we can. It's better to convert a value manually before any comparison than relying on the loose equal operator.__
+
+# Boolean logic
+Using true and false values to solve complex logical problems. In order to do that we use several logical operators to combine true and false values. The main boolean operators are AND, OR and NOT, but there are many more. The NOT operator actually has precedence over the AND and OR operators.
+

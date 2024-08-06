@@ -80,6 +80,14 @@ console.log(Boolean(undefined));
 console.log(Boolean(24));
 console.log(Boolean("anything but empty"));
 console.log(Boolean({}));
+
+//Equality operators:
+console.log(`Loose equal operator: "18" == 18: `, "18" == 18)
+console.log('Strict equal operator: "18" === 18: ', "18" === 18)
+
+//Alternative to retrieve data from the user
+const myData = prompt("What's your favorite number?")
+console.log(myData)
 /*
  multi line comments
  for many lines
