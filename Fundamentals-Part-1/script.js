@@ -51,6 +51,35 @@ if (age >= 18) {
     const yearsLeft = 18 - age;
     console.log(`Jose is too young. Wait another ${yearsLeft} years 😊`);
 }
+
+//Type conversion:
+console.log(Number("1999"), "1999");
+console.log(Number("creating the Nan error"));
+console.log(typeof NaN);
+console.log(String(23), 23)
+
+//Type coercion
+console.log("I am" + 24 + "years old");
+console.log("I am" + "24" + "years old");
+
+//Type coercion also depends on the operators that we're using:
+console.log("24" + "10" + 4);
+console.log("24" - "10" - 4);
+console.log("24" + "10" - 4);
+console.log("24" * "2");
+console.log("24" / "2");
+
+//Creating Falsy values:
+console.log(Boolean(0));
+console.log(Boolean(""));
+console.log(Boolean(null));
+console.log(Boolean(NaN));
+console.log(Boolean(undefined));
+
+//Creating Truthy values:
+console.log(Boolean(24));
+console.log(Boolean("anything but empty"));
+console.log(Boolean({}));
 /*
  multi line comments
  for many lines

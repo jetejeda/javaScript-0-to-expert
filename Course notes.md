@@ -69,6 +69,8 @@ let secondExample = 'They are called "devs"'
 ```
 
 Template literals were introduced in ES6. With them we can write a string in a more normal way, and then insert the variables directly into the string. For doing so we just have to create the string with the ``symbols and inside of them, we can add all the javaScript code that we want/need inside ${}.
+
+The ${} is called a placeholder.
 ```js
 const newIntroduction = `I'm ${firstName}, a ${(currentYear - birthYear)} years old ${job}!`;
 ```
@@ -77,3 +79,32 @@ Another great use case for template literals is for creating multi-line strings.
 
 # The if statement
 It's a control structure, it allow us to have more control over the way that our code is executed. With the if statement we can control which blocks of code our program will have to execute and the blocks that should not execute, all based on the conditions defined for the if statement.
+
+# Type conversion and Coercion
+Type conversion is when we manually convert from one type to another. Type coercion is when javaScript automatically converts types behind the scenes for us.
+
+## Conversion
+When working with any type conversion that involves a number, if the operation fails, JavaScript will return a Nan value which stands for Not a Number. Nan really means an invalid number, but the data type of NaN is actually a number.
+
+Javascript can only convert between three types, we can convert to a Number, an String or to a Boolean.
+
+## Coercion
+It happens whenever an operator is dealing with two values that have different types. In that case, JavaScript will then, behind the scenes, convert one of the values to match the other value so that in the end the operation can be executed.
+
+Whenever there is an operation between a number and a string, the number will be converted to a string. Not all the operators do type coercion to string, for example the minus (-) operator triggers a conversion in which strings are converted into numbers. It also happens with the multiplication (*) and division (/) operators that converts strings to numbers.
+
+Type coercion can introduce many unexpected bugs into our program, that's why it is really important to learn how it actually works.
+
+## Truthy and Falsy values
+
+Falsy values are values that are not exactly false, but will become false when we try to convert them into a Boolean. There are five falsy values:
+- 0
+- ''
+- undefined
+- null
+- NaN
+
+This values are not exactly false initially, but they will become when converted to a Boolean. Everything else are so-called truthy values. For example any number that is not zero, any string that is not empty will be converted to true. This is helpful for if conditions, since everything inside the condition statement will be casted to Boolean.
+
+In practice, a conversion to Boolean is always implicit, not explicit, this means that we always rely on coercion.
+
