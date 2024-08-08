@@ -52,3 +52,38 @@ let getJuice = fruitProcessor(3, 2);
 console.log(getJuice);
 ```
 If we assign a function that doesn't return anything to a variable, after the execution the variable will contained undefined (produced by the function).
+
+# Function Declarations VS. Expressions
+In JavaScript there are different ways of writing functions. Each type of function works in a slightly different way.
+
+- Function declarations: It's when we use the function keyword to declare a function plus the function name.
+- Function expression/anonymous functions: Is the other type of function that exists. To create it we simply write the function keyword but without a name for the function, and include the parameters that we will need as well as the logic inside the function. Finally, we will have to store the complete function inside a variable, that variable will then be the function.
+
+Function expressions are important because in JavaScript, functions are actually just values. Function is not a type, is a value, therefore we can store them inside variables.
+
+## Difference between function declarations and Function expressions
+The main difference is that we can actually call function declarations before they are defined in the code. We can't do this with function expressions.
+
+### Example with function declarations
+```js
+// This will work as it's a function declaration
+let getJuice = fruitProcessor(13, 4);
+console.log(getJuice);
+
+function fruitProcessor(apples, oranges) {
+    return `Here is your juice composed of ${apples} apples and ${oranges} oranges!`
+}
+```
+![calling a function declaration before it's definition](/Fundamentals-Part-2/images-for-course-notes/function-declaration-example.png)
+
+### Example with function expression
+```js
+// This will throw an error since we are trying to call a function expression before it's defined
+let getJuice = fruitProcessor(13, 4);
+console.log(getJuice);
+
+const fruitProcessor = function(apples, oranges) {
+    return `Here is your juice composed of ${apples} apples and ${oranges} oranges!`
+}
+```
+![calling a function expression before it's definition](/Fundamentals-Part-2/images-for-course-notes/function-expression-example.png)

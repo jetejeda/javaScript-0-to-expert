@@ -13,6 +13,10 @@ function logger() {
 // call/invoke the function
 logger();
 
+// Calling a declaration function before it's definition
+let earlyJuice = fruitProcessor(13, 4);
+console.log(earlyJuice);
+
 // Functions with parameters
 function fruitProcessor(apples, oranges) {
     console.log(`I will be processing ${apples} apples and ${oranges} oranges in this function`);
@@ -24,3 +28,10 @@ console.log(getJuice);
 
 let getMoreJuice = fruitProcessor(5, 8);
 console.log(getMoreJuice);
+
+// Using expressions
+const getAge = function (birthYear) {
+    return new Date().getFullYear() - birthYear
+}
+
+console.log(getAge(1999))
