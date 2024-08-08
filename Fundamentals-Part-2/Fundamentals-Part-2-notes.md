@@ -33,3 +33,22 @@ const interface = "This should fail thanks to the strict mode";
 ```
 ![trying to use a future reserved word](/Fundamentals-Part-2/images-for-course-notes/image-2.png)
 
+# Functions
+A function is a piece of code that we can reuse several times in our code. It's like a variable but for whole chunks of code.
+They can hold one or more complete lines of code. After we have created our function we can then execute it, in order to execute/invoke a function we just have to call it. We can call a function as many times as we want.
+
+In functions we can pass data and additionally, a function can also return data as well. In order to send information to a function we will need parameters. Functions allow us to write more maintainable code because with functions we can create reusable chunks of code, its a very important principle for writing clean code. 
+
+The parameters are like variables that are specific only to the function and they will get defined once we call the function. They represent the input data of the function. When calling a function that has parameters, all the values that we send are called arguments. Thanks to the parameters defined in some functions, we can reuse the function with different input values (arguments) and get a different output. 
+
+If we never call a function, the code inside of it will never be executed. __Keep in mind that not all functions need to return something and not all functions need to accept parameters.__
+```js
+// Functions with parameters
+function fruitProcessor(apples, oranges) {
+    return `Here is your juice composed of ${apples} apples and ${oranges} oranges!`
+}
+// Passing the arguments to the function
+let getJuice = fruitProcessor(3, 2);
+console.log(getJuice);
+```
+If we assign a function that doesn't return anything to a variable, after the execution the variable will contained undefined (produced by the function).
