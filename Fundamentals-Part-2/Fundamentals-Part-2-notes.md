@@ -111,3 +111,8 @@ const myAge = ageAsArrowFunction(1999);
 console.log(myAge);
 ```
 __IMPORTANT!__ The arrow functions, unlike the function declarations or expressions, do not get a so-called this keyword.
+
+# Functions calling Other Functions
+This is something that we do all the time in JavaScript. For example if we have a function that performs a complex activity or set of activities, but needs the result of another function to continue it's processing. This also helps us to ease the maintenance since we are writing cleaner and reusable code.
+
+As a side note, keep in mind that the return statement immediately exits the function, therefore, nothing below it will be executed.

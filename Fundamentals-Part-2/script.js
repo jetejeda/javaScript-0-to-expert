@@ -47,3 +47,12 @@ const complexArrowFunction = (birthYear, firstName) => {
 }
 const sayMyAge = complexArrowFunction(1999, "Jose")
 console.log(sayMyAge);
+
+// Functions calling other functions
+const cutPieces = fruit => fruit * 4;
+const prepareJuice = function (apples, oranges) {
+    const applePieces = cutPieces(apples);
+    const orangePieces = cutPieces(oranges);
+    return `I have prepared a juice composed of ${applePieces} apple pieces and ${orangePieces} orange pieces`;
+}
+console.log(prepareJuice(2, 3));
