@@ -35,3 +35,15 @@ const getAge = function (birthYear) {
 }
 
 console.log(getAge(1999))
+
+// Arrow functions
+const ageAsArrowFunction = birthYear => new Date().getFullYear() - birthYear;
+const myAge = ageAsArrowFunction(1999);
+console.log(myAge);
+
+const complexArrowFunction = (birthYear, firstName) => {
+    const age = new Date().getFullYear() - birthYear;
+    return `Hey ${firstName}, you are ${age} years old.`
+}
+const sayMyAge = complexArrowFunction(1999, "Jose")
+console.log(sayMyAge);

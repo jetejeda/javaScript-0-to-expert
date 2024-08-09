@@ -87,3 +87,27 @@ const fruitProcessor = function(apples, oranges) {
 }
 ```
 ![calling a function expression before it's definition](/Fundamentals-Part-2/images-for-course-notes/function-expression-example.png)
+
+# Arrow functions
+It's another type of function that was added to JavaScript ES6. Is a special form of function expression that is shorter and therefore faster to write. It's easier to write since we don't need the curly braces, nor the function and return keywords.
+
+The syntax is: 
+(parameters) => code;
+```js
+const ageAsArrowFunction = birthYear => new Date().getFullYear() - birthYear;
+const myAge = ageAsArrowFunction(1999);
+console.log(myAge);
+```
+It is excellent for simple one-liner functions. They can get more complex when we add more parameters or more code. If the arrow function needs more lines of code, we can use the curly braces to define the code block that corresponds to the arrow function, with more complex functions, we will also need the return keyword. As we add more code and more parameters, it gets a little bit more complex and we kind of lose the advantage of arrow functions.
+
+## Arrow function with a complex structure:
+```js
+const ageAsArrowFunction = (birthYear, firstName) =>
+ {
+    const age = new Date().getFullYear() - birthYear;
+    return `Hey ${firstName}, you are ${age} years old.`;
+ }
+const myAge = ageAsArrowFunction(1999);
+console.log(myAge);
+```
+__IMPORTANT!__ The arrow functions, unlike the function declarations or expressions, do not get a so-called this keyword.
