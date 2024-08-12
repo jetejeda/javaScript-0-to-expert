@@ -116,3 +116,31 @@ __IMPORTANT!__ The arrow functions, unlike the function declarations or expressi
 This is something that we do all the time in JavaScript. For example if we have a function that performs a complex activity or set of activities, but needs the result of another function to continue it's processing. This also helps us to ease the maintenance since we are writing cleaner and reusable code.
 
 As a side note, keep in mind that the return statement immediately exits the function, therefore, nothing below it will be executed.
+
+# Introduction to Arrays
+Arrays are data structures. They are like containers into which we can throw variables and then reference them. The two main data structures in JavaScript are Arrays and Objects. Arrays can be created using any of this two forms:
+
+```js
+const firstArray = ["val1", "val2", "val3"];
+const secondArray = new Array ("val1", "val2", "val3");
+```
+Arrays can hold as many values as we want. Also values of any type that we'd like. In order to access a value of an array we just have to use it's index. Keep in mind that arrays are zero-based index. When trying to access a specific element in the array, inside of the brackets we can put any expression (anything that produces a value)
+```js
+console.log(firstArray[0]) //will print val1
+console.log(firstArray[firstArray.length -1]) //will print val3
+```
+Arrays are mutable, we can add more values at the end of the current array and even update values from specific positions in the array. Only primitive values are immutable, but an Array is not a primitive value. Even if we define an array using const, we will still be able to update any of it's values, but we can't replace the entire Array.
+```js
+firstArray[1] = "newVal"
+```
+An array can actually holds values with different types all at the same time. We can also create nested Arrays.
+
+## Basic Array Operations
+
+- push: Adds elements to the end of an array. This is a function, since it's a function, it returns a value. The value that it returns is the length of the new array.
+- unshift: It adds elements to the beginning of the array. It also returns the length of the new array.
+- pop: It will remove the last element of the Array. It returns the removed element.
+- shift: Will remove the first element of the Array. It returns the removed element.
+- indexOf: This will show us the index of a certain element in the Array. It needs the element from which we want the reference. It will be returned in a zero-based index.
+- Includes: Simply returns true if an element is in the Array and false if not. It uses strict equality for the check.
+

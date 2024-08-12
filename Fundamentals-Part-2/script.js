@@ -56,3 +56,27 @@ const prepareJuice = function (apples, oranges) {
     return `I have prepared a juice composed of ${applePieces} apple pieces and ${orangePieces} orange pieces`;
 }
 console.log(prepareJuice(2, 3));
+
+//Working with arrays
+const firstArray = ["val1", "val2", "val3"];
+console.log(firstArray);
+firstArray[1] = "my new values"
+console.log(firstArray);
+// Array basic Operations
+// Add elements
+const newLength = firstArray.push("val4");
+console.log(firstArray);
+console.log(newLength);
+firstArray.unshift("val0");
+console.log(firstArray);
+
+// Remove elements
+const poppedElement = firstArray.pop();
+console.log(firstArray);
+console.log(poppedElement);
+firstArray.shift();
+console.log(firstArray);
+// Lookup elements
+console.log(firstArray.indexOf("val1"));
+console.log(firstArray.includes("val1"));
+console.log(firstArray.includes("val2"));
