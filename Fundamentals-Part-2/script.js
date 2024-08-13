@@ -85,8 +85,12 @@ console.log(firstArray.includes("val2"));
 const myInformation = {
     firstName: "Jose",
     lastName: "Tejeda",
-    age: 2024 - 1999,
-    job: 'Data engineer'
+    birthYear: 1999,
+    job: 'Data engineer',
+    hasDriversLicense: true,
+    getSummary: function () {
+        return `${this.firstName} is a ${this.age}-year old ${this.job}, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
+    }
 }
 console.log(myInformation);
 myInformation["newProperty"] = "I'm brand new";
@@ -94,3 +98,12 @@ myInformation.anotherProperty = "I was added using the dot notation!";
 console.log(myInformation);
 //
 console.log(`${myInformation["name"]} has ${myInformation.age} and it's a ${myInformation["job"]}`);
+
+myInformation["calcAge"] = function () {
+    this.age = new Date().getFullYear() - this.birthYear;
+    return this.age;
+}
+
+console.log(myInformation["calcAge"]());
+console.log(myInformation.age);
+console.log(myInformation.getSummary());

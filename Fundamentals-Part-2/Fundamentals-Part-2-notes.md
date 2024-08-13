@@ -168,3 +168,9 @@ We can use both Dot and Bracket notation to add new properties to objects. In or
 myInformation["newProperty"] = "I'm brand new";
 myInformation.anotherProperty = "I was added using the dot notation!";
 ```
+
+## Object methods
+Since objects are just another type of value, it's possible to store a key value pair in which the value is a function. Any function that is attached to an object is called a method. We can access the method with the dot and bracket notation that we previously saw.
+
+In every method we have access to a special variable called "this". The this variable is equal to the object calling the method. We can also use this in order to create new properties for an object inside a method, this is useful when we want to optimize the computation of a recurrent value.
+
