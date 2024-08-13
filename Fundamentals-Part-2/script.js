@@ -80,3 +80,17 @@ console.log(firstArray);
 console.log(firstArray.indexOf("val1"));
 console.log(firstArray.includes("val1"));
 console.log(firstArray.includes("val2"));
+
+// Objects
+const myInformation = {
+    firstName: "Jose",
+    lastName: "Tejeda",
+    age: 2024 - 1999,
+    job: 'Data engineer'
+}
+console.log(myInformation);
+myInformation["newProperty"] = "I'm brand new";
+myInformation.anotherProperty = "I was added using the dot notation!";
+console.log(myInformation);
+//
+console.log(`${myInformation["name"]} has ${myInformation.age} and it's a ${myInformation["job"]}`);

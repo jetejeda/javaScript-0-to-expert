@@ -144,3 +144,27 @@ An array can actually holds values with different types all at the same time. We
 - indexOf: This will show us the index of a certain element in the Array. It needs the element from which we want the reference. It will be returned in a zero-based index.
 - Includes: Simply returns true if an element is in the Array and false if not. It uses strict equality for the check.
 
+# Introduction to objects
+In objects we define key value pairs. By doing so, we can give each value a name. We define a new object using the curly braces {}. The key is the variable name, the value can be of any type that we want. We can add as many key:value pairs as we want, we just have to separate them with commas. Inside the value definition we can place any expression that we want.
+
+Keys are also called properties. We use objects to essentially group together different variables that really belong together. The main difference between objects and Arrays is that in objects, the order of the values does not matter at all when we want to retrieve them. This means that we should use arrays for more order data and objects for more unstructured data.
+
+## Dot vs. Bracket notation
+When we want to access a property of an object, we can do so with the dot notation or with the brackets notation.
+```js
+myInformation.firstName;
+myInformation["firstName"];
+```
+The main difference is that in the brackets notation, we can actually put any expression that we'd like. We can compute from some operation the property that we want to access.
+```js
+const nameKey = "Name";
+myInformation["first" + nameKey];
+myInformation["last" + nameKey];
+```
+Keep in mind that if try to access a property on an object and it doesn't exist, we will be getting an undefined value.
+
+We can use both Dot and Bracket notation to add new properties to objects. In order to achieve this we just have to assign the new key its specific value, as follows:
+```js
+myInformation["newProperty"] = "I'm brand new";
+myInformation.anotherProperty = "I was added using the dot notation!";
+```
