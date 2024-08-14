@@ -174,3 +174,9 @@ Since objects are just another type of value, it's possible to store a key value
 
 In every method we have access to a special variable called "this". The this variable is equal to the object calling the method. We can also use this in order to create new properties for an object inside a method, this is useful when we want to optimize the computation of a recurrent value.
 
+# The for Loop
+All loops are control structures. Loops allow us to automate repetitive tasks. The for loop has three main parts. The first part is the initial value of a counter. The second part is a logical condition that is evaluated before each iteration of the loop, if the condition is true, then the next loop iteration will run, as soon as the condition is false, the loop stops. Finally, the third part of the for statement is increasing the counter. 
+
+With those three parts defined, we can then create the code block that we want to be repeated. After each iteration of the loop the third main part of the for will be executed (increasing/decreasing the counter).
+
+There are two important statements for loops. They are continue and break statement. The continue statement is used to exit the current iteration of the loop and continue to the next one. On the other hand, break is used to completely terminate the whole loop execution.

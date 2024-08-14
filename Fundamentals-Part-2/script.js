@@ -107,3 +107,17 @@ myInformation["calcAge"] = function () {
 console.log(myInformation["calcAge"]());
 console.log(myInformation.age);
 console.log(myInformation.getSummary());
+
+// The for loop
+for (let i = 1; i <= 10; i++) {
+    console.log(`Lifting weights repetition ${i} 🦾`);
+}
+
+//The continue and break statements
+const arrayTest = [1999, "I will be included", ["I am an object", "I will not be included"], false, "another string"];
+for (let i = 1; i < arrayTest.length; i++) {
+    if (typeof arrayTest[i] == "boolean") break;
+    else if (typeof arrayTest[i] != "string") continue;
+
+    console.log(arrayTest[i]);
+}
