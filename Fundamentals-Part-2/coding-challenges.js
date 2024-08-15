@@ -169,4 +169,5 @@ const average = function (arr) {
     return sum / (arr.length);
 }
 
-average(totals)
+console.log(bills, tips, totals);
+console.log(`The average total for all the bills is: ${average(totals)}.`);
