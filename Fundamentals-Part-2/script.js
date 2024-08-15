@@ -121,3 +121,14 @@ for (let i = 1; i < arrayTest.length; i++) {
 
     console.log(arrayTest[i]);
 }
+
+//Working with nested loops and backwards loops
+const exercises = ["pull over", "dead lift", "squats"];
+
+for (let i = exercises.length - 1; i >= 0; i--) {
+    console.log(`starting the ${exercises[i]} exercise!`);
+    for (let j = 1; j <= 5; j++) {
+        console.log(`You are doing the repetition ${j} of your ${exercises[i]} 🦾`);
+    }
+    console.log(`Excellent, now yo should rest from 2 to 3 minutes`);
+}

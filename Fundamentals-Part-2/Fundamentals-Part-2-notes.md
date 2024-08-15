@@ -179,4 +179,7 @@ All loops are control structures. Loops allow us to automate repetitive tasks. T
 
 With those three parts defined, we can then create the code block that we want to be repeated. After each iteration of the loop the third main part of the for will be executed (increasing/decreasing the counter).
 
-There are two important statements for loops. They are continue and break statement. The continue statement is used to exit the current iteration of the loop and continue to the next one. On the other hand, break is used to completely terminate the whole loop execution.
+There are two important statements for loops. They are continue and break statement. The continue statement is used to exit the current iteration of the loop and continue to the next one. On the other hand, break is used to completely terminate the whole loop execution. When working with for loops we can both increase and decrease the counter of the loop.
+
+When working with loops we can use loops inside other loops (nested loops). 
+
