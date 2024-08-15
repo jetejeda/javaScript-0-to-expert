@@ -183,3 +183,6 @@ There are two important statements for loops. They are continue and break statem
 
 When working with loops we can use loops inside other loops (nested loops). 
 
+# The while loop
+In order to implement a while loop, we can only specify a condition. We will continue executing while our condition is still true. This means that the while loop is more versatile than the for loop, which means it's useful in a larger variety of situations, it is useful for situations in which we don't know the specific amount of iterations that we will have in our loop execution. In the while loop, first the condition is evaluated, if it's true it enters the code block, otherwise the code block inside the while loop it's not executed.
+
