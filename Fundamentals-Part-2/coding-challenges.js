@@ -1,3 +1,4 @@
+"use strict";
 /**
 CHALLENGE #1
 Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new gymnastics discipline, which works differently.
@@ -26,19 +27,20 @@ TEST DATA 1: Dolphins scored 44, 23, and 71. Koalas scored 65, 54, and 49.
 
 TEST DATA 2: Dolphins scored 85, 54, and 41. Koalas scored 23, 34, and 27.
 */
-const calcAverage = (firstScore, secondScore, thirdScore) => (firstScore + secondScore + thirdScore) / 3;
+const calcAverage = (firstScore, secondScore, thirdScore) =>
+  (firstScore + secondScore + thirdScore) / 3;
 let scoreDolphins = calcAverage(43, 23, 71);
 let scoreKoalas = calcAverage(85, 54, 41);
 
 const checkWinner = function (avgDolphins, avgKoalas) {
-    if (avgDolphins / avgKoalas >= 2) {
-        return `Dolphins win (${avgDolphins} vs. ${avgKoalas})`;
-    } else if (avgKoalas / avgDolphins >= 2) {
-        return `Koalas win (${avgKoalas} vs. ${avgDolphins})`;
-    } else {
-        return "No team wins...";
-    }
-}
+  if (avgDolphins / avgKoalas >= 2) {
+    return `Dolphins win (${avgDolphins} vs. ${avgKoalas})`;
+  } else if (avgKoalas / avgDolphins >= 2) {
+    return `Koalas win (${avgKoalas} vs. ${avgDolphins})`;
+  } else {
+    return "No team wins...";
+  }
+};
 
 console.log(checkWinner(scoreDolphins, scoreKoalas));
 scoreDolphins = calcAverage(85, 54, 41);
@@ -63,22 +65,21 @@ TEST DATA: 125, 555, and 44.
 */
 
 const calcTip = function (bill) {
-    return (bill >= 50 && bill <= 300) ? 0.15 * bill : 0.20 * bill;
-}
+  return bill >= 50 && bill <= 300 ? 0.15 * bill : 0.2 * bill;
+};
 console.log(calcTip(100));
 
 let bills = [125, 555, 44];
 let tips = [];
 
-bills.forEach(element => {
-    tips.push(calcTip(element))
+bills.forEach((element) => {
+  tips.push(calcTip(element));
 });
 console.log(tips);
 
 let totals = [];
 for (let i = 0; i < bills.length; i++) {
-    totals.push(bills[i] + tips[i]);
-
+  totals.push(bills[i] + tips[i]);
 }
 console.log(totals);
 
@@ -98,28 +99,32 @@ Log to the console who has the higher BMI, together with the full name and the r
 
 TEST DATA: Marks weighs 78 kg and is 1.69 m tall. John weighs 92 kg and is 1.95 m tall. */
 const mark = {
-    fullName: "Mark Miller",
-    mass: 78,
-    height: 1.69,
-    calcBMI: function () {
-        this.bmi = this.mass / (this.height ** 2);
-        return this.bmi;
-    }
-}
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
 const john = {
-    fullName: "John Smith",
-    mass: 92,
-    height: 1.95,
-    calcBMI: function () {
-        this.bmi = this.mass / (this.height ** 2);
-        return this.bmi;
-    }
-}
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
 
 if (mark.calcBMI() > john.calcBMI()) {
-    console.log(`Mark Miller's BMI (${mark.bmi}) is higher than John Smith's (${john["bmi"]})!`);
+  console.log(
+    `Mark Miller's BMI (${mark.bmi}) is higher than John Smith's (${john["bmi"]})!`
+  );
 } else {
-    console.log(`John Smith's BMI (${john.bmi}) is higher than Mark Miller's (${mark["bmi"]})!`);
+  console.log(
+    `John Smith's BMI (${john.bmi}) is higher than Mark Miller's (${mark["bmi"]})!`
+  );
 }
 
 /*
@@ -152,22 +157,88 @@ Call the function with the totals array.
 */
 
 bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
-tips = []
-totals = []
+tips = [];
+totals = [];
 
 for (let i = 0; i < bills.length; i++) {
-    const currentTip = calcTip(bills[i]);
-    tips.push(currentTip);
-    totals.push(bills[i] + currentTip);
+  const currentTip = calcTip(bills[i]);
+  tips.push(currentTip);
+  totals.push(bills[i] + currentTip);
 }
 
 const average = function (arr) {
-    const sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-        sum += arr[i];
-    }
-    return sum / (arr.length);
-}
+  const sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+};
 
 console.log(bills, tips, totals);
 console.log(`The average total for all the bills is: ${average(totals)}.`);
+
+/*
+PROBLEM 1:
+We work for a company building a smart home thermometer. Our most recent task is this: "Given an array of temperatures of one day, calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error."
+
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+
+*/
+//First approach
+const temperatures = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
+let minTemperature = temperatures[0];
+let maxTemperature = temperatures[0];
+
+for (let i = 1; i < temperatures.length; i++) {
+  const element = temperatures[i];
+  if (Number(element)) {
+    minTemperature = minTemperature > element ? element : minTemperature;
+    maxTemperature = maxTemperature < element ? element : maxTemperature;
+  }
+}
+console.log(
+  `The min temperature given is: ${minTemperature} and the max temperature given is: ${maxTemperature}.
+  The temperature amplitude for this array is ${
+    maxTemperature - minTemperature
+  }`
+);
+
+// Alternative
+let alternativeAnswer = temperatures
+  .filter((a) => typeof a === "number")
+  .sort((a, b) => {
+    return a - b;
+  });
+console.log(alternativeAnswer);
+console.log(
+  `The min temperature given is: ${
+    alternativeAnswer[0]
+  } and the max temperature given is: ${
+    alternativeAnswer[alternativeAnswer.length - 1]
+  }
+  The temperature amplitude for this array is ${
+    alternativeAnswer[alternativeAnswer.length - 1] - alternativeAnswer[0]
+  }`
+);
+
+/*
+Given an array of forecasted maximum temperatures, the thermometer displays a string with these temperatures.
+
+Example: [17, 21, 23] will print "... 17ºC in 1 days ... 21ºC in 2 days ... 23ºC in 3 days ..."
+
+Create a function 'printForecast' which takes in an array 'arr' and logs a string like the above to the console.
+
+Use the problem-solving framework: Understand the problem and break it up into sub-problems!
+
+TEST DATA 1: [17, 21, 23]
+TEST DATA 2: [12, 5, -5, 0, 4]
+*/
+const printForecast = function (arr) {
+  let forecast = "...";
+  for (let i = 0; i < arr.length; i++) {
+    forecast += ` ${arr[i]}ºC in ${i + 1} days ...`;
+  }
+  return forecast;
+};
+console.log(printForecast([17, 21, 23]));
+console.log(printForecast([12, 5, -5, 0, 4]));
