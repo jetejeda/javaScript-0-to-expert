@@ -9,3 +9,9 @@ The DOM tree has more than just element nodes, it also has nodes for all the tex
 ## Selecting and Manipulating Elements
 
 Using the document object we can access each of the elements in our html files, with that we can retrieve information of them and even set the information. In order to do that we can use the querySelector method which based on the same syntax as css rules will return the first element that matches the query. For input fields in order to access the actual value, we have to use the nodeValue property.
+
+## Handling Events
+
+An event is something that happens on the page. With event listeners we can wait for a certain event to happen, and then react to it. In order to listen for events, we first need to select the element where the event should happen. With event listeners we first have to specify which event must happen, then the reaction to that event. The reaction will be a function that will contain the code that should be executed whenever the event occurs, the function is code "event handler".
+
+It's important to know that the event handler will not be executed immediately once the script is executed. This function will only be called as the event happens, and the JavaScript engine will be in charge doing it for us.
