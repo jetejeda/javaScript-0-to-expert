@@ -15,3 +15,5 @@ Using the document object we can access each of the elements in our html files, 
 An event is something that happens on the page. With event listeners we can wait for a certain event to happen, and then react to it. In order to listen for events, we first need to select the element where the event should happen. With event listeners we first have to specify which event must happen, then the reaction to that event. The reaction will be a function that will contain the code that should be executed whenever the event occurs, the function is code "event handler".
 
 It's important to know that the event handler will not be executed immediately once the script is executed. This function will only be called as the event happens, and the JavaScript engine will be in charge doing it for us.
+
+# Building modal windows
