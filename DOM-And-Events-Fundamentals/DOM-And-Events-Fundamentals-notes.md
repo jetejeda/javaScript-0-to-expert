@@ -17,3 +17,7 @@ An event is something that happens on the page. With event listeners we can wait
 It's important to know that the event handler will not be executed immediately once the script is executed. This function will only be called as the event happens, and the JavaScript engine will be in charge doing it for us.
 
 # Building modal windows
+
+Modal windows are UI components. They are a pop up view with an overlay, which gets overlaid over the rest of the page. To exit a modal window, we could click in the closing button, clicking anywhere outside of the window (the overlay) or by pressing the ESC key.
+
+Usually when we need to manipulate a webpage, we do so by working with classes, adding or removing them from each html tag with javascript. By exporting the styles into a class, we will have a clean and easy to maintain code.
