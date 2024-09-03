@@ -21,3 +21,11 @@ It's important to know that the event handler will not be executed immediately o
 Modal windows are UI components. They are a pop up view with an overlay, which gets overlaid over the rest of the page. To exit a modal window, we could click in the closing button, clicking anywhere outside of the window (the overlay) or by pressing the ESC key.
 
 Usually when we need to manipulate a webpage, we do so by working with classes, adding or removing them from each html tag with javascript. By exporting the styles into a class, we will have a clean and easy to maintain code.
+
+# keyboard events
+
+For them we still need to add an event listener. They are so-called global events because they do not happen on one specific element. For global events, we usually list them on the whole document.
+
+For keyboard there are three types of events which are: key down, key press or the key up. In order to check which key was pressed will be stored in the event that is going to occur as soon as any key is pressed. Anytime this event occurs, JavaScript will create an object which contains all the information about the event itself, and we can then access it inside the handler function.
+
+In order to receive that event, we need to send a param to the function that will be executed, we commonly use the letter e which stands for event.

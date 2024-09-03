@@ -25,3 +25,11 @@ modal_buttons.forEach((element) => {
 overlay.addEventListener("click", hide_modal);
 
 btn_close_modal.addEventListener("click", hide_modal);
+
+//Global events
+document.addEventListener("keypress", function (e) {
+  console.log(e);
+  if (e.key === "Enter" && !modal_view.classList.contains("hidden")) {
+    hide_modal();
+  }
+});
