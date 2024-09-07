@@ -22,6 +22,11 @@ const update_score = (element, score) => {
   element.textContent = score;
 };
 
+const reset_turn = () => {
+  player_in_turn = !player_in_turn;
+  current_score = 0;
+};
+
 const player_active = function () {
   if (player_in_turn) {
     player1_section.classList.remove("player--active");
@@ -41,10 +46,23 @@ btn_roll_dice.addEventListener("click", function () {
 
   if (dice_value == 1) {
     player_active();
-    player_in_turn = !player_in_turn;
-    current_score = 0;
+    reset_turn();
   } else {
     current_score += dice_value;
   }
   update_score(player_score, current_score);
+});
+
+btn_hold_score.addEventListener("click", function () {
+  if (player_in_turn) {
+    current_score += Number(player1_total_score.textContent);
+    update_score(player1_total_score, current_score);
+    update_score(player1_current_score, 0);
+  } else {
+    current_score += Number(player2_total_score.textContent);
+    update_score(player2_total_score, current_score);
+    update_score(player2_current_score, 0);
+  }
+  player_active();
+  reset_turn();
 });
