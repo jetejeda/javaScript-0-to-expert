@@ -18,6 +18,8 @@ let dice_value = 1;
 //Decide if it's player 1 turn or if its player's 2 turn
 let player_in_turn = true;
 
+dice_images.style.display = "none";
+
 const update_score = (element, score) => {
   element.textContent = score;
 };
@@ -40,6 +42,7 @@ const player_active = function () {
 btn_roll_dice.addEventListener("click", function () {
   dice_value = Math.trunc(Math.random() * 6) + 1;
   dice_images.src = `./img/dice-${dice_value}.png`;
+  dice_images.style.display = "block";
   let player_score = player_in_turn
     ? player1_current_score
     : player2_current_score;
@@ -77,4 +80,5 @@ btn_new_game.addEventListener("click", function () {
   update_score(player2_current_score, 0);
   update_score(player2_total_score, 0);
   current_score = 0;
+  dice_images.style.display = "none";
 });
