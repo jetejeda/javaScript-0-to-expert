@@ -18,7 +18,7 @@ let dice_value = 1;
 //Decide if it's player 1 turn or if its player's 2 turn
 let player_in_turn = true;
 
-dice_images.style.display = "none";
+dice_images.classList.add("hidden");
 
 const update_score = (element, score) => {
   element.textContent = score;
@@ -30,19 +30,14 @@ const reset_turn = () => {
 };
 
 const player_active = function () {
-  if (player_in_turn) {
-    player1_section.classList.remove("player--active");
-    player2_section.classList.add("player--active");
-  } else {
-    player2_section.classList.remove("player--active");
-    player1_section.classList.add("player--active");
-  }
+  player1_section.classList.toggle("player--active");
+  player2_section.classList.toggle("player--active");
 };
 
 btn_roll_dice.addEventListener("click", function () {
   dice_value = Math.trunc(Math.random() * 6) + 1;
   dice_images.src = `./img/dice-${dice_value}.png`;
-  dice_images.style.display = "block";
+  dice_images.classList.remove("hidden");
   let player_score = player_in_turn
     ? player1_current_score
     : player2_current_score;
@@ -57,28 +52,40 @@ btn_roll_dice.addEventListener("click", function () {
 });
 
 btn_hold_score.addEventListener("click", function () {
+  let element;
   if (player_in_turn) {
     current_score += Number(player1_total_score.textContent);
     update_score(player1_total_score, current_score);
     update_score(player1_current_score, 0);
+    element = player1_section;
   } else {
     current_score += Number(player2_total_score.textContent);
     update_score(player2_total_score, current_score);
     update_score(player2_current_score, 0);
+    element = player2_section;
   }
   player_active();
+  if (current_score >= 20) {
+    element.classList.toggle("player--winner");
+    dice_images.classList.add("hidden");
+    btn_hold_score.classList.add("hidden");
+    btn_roll_dice.classList.add("hidden");
+  }
   reset_turn();
 });
 
 btn_new_game.addEventListener("click", function () {
-  player_in_turn = false;
-  player_active();
   player_in_turn = true;
+  player_active();
   update_score(player1_current_score, 0);
   update_score(player1_total_score, 0);
 
   update_score(player2_current_score, 0);
   update_score(player2_total_score, 0);
   current_score = 0;
-  dice_images.style.display = "none";
+  dice_images.classList.add("hidden");
+  btn_hold_score.classList.remove("hidden");
+  btn_roll_dice.classList.remove("hidden");
+  player1_section.classList.remove("player--winner");
+  player2_section.classList.remove("player--winner");
 });
