@@ -66,3 +66,15 @@ btn_hold_score.addEventListener("click", function () {
   player_active();
   reset_turn();
 });
+
+btn_new_game.addEventListener("click", function () {
+  player_in_turn = false;
+  player_active();
+  player_in_turn = true;
+  update_score(player1_current_score, 0);
+  update_score(player1_total_score, 0);
+
+  update_score(player2_current_score, 0);
+  update_score(player2_total_score, 0);
+  current_score = 0;
+});
