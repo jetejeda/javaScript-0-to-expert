@@ -32,3 +32,17 @@ JavaScript zero to expert Udemy course
 - Introduction to objects
 - The for Loop
 - The while loop
+
+## Topics discussed in DOM-And-Events-Fundamentals:
+
+- What's the DOM and DOM Manipulation
+- Selecting and Manipulating Elements
+- Handling Events
+- Building modal windows
+- keyboard events
+
+### Projects during section:
+
+- Event-listeners
+- modal-Windows
+- Final-project
