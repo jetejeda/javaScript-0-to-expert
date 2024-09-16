@@ -64,3 +64,37 @@ Complete process:
 4. The callback function is executed
 
 This happens by the event loop. It takes callback functions from the callback queue and puts them in the call stack so that they can be executed.
+
+# Execution Contexts and The Call Stack
+
+After the code compilation, a global execution context is created for the top-level code. The top level code is anything that is not inside any function.
+
+An execution context is an abstract concept. Is basically an environment in which a piece of JavaScript is executed. They store all the necessary information for some code to be executed. Such as local variables or arguments passed into a function. In any JavaScript project, no matter how large it is, there is only ever one global execution context.
+
+Once the top-level code execution is finished, functions finally start to execute as well. For each and every function call, a new execution context will be created containing all the information that is necessary to run exactly that function. All the execution contexts together make up the call stack.
+
+When all functions are done executing, the engine will keep waiting for callback functions to arrive so that it can execute these.
+
+## What is inside the execution context
+
+The first thing that's inside any execution context is a so-called variable environment. In this environment, all our variables and function declarations are stored and there is also a special arguments object.
+
+The arguments object contains, all the arguments that were passed into the function that the current execution context belongs to.
+
+Functions can also access variables outside of the function, this works because of the scope chain which basically consist of references to variables that are located outside of the current function. To keep track of the scope chain it is stored in each execution context.
+
+Each context also gets a special variable called the this keyword.
+
+The content of the execution context is:
+
+- Variable environment
+- Scope chain
+- this keyword
+
+This content is generated in the creation phase which happens right before the execution.
+
+**IMPORTANT!** Execution contexts related to arrow functions do not get their own arguments keyword nor do they get the this keyword. Instead they can use the arguments object and the this keyword from their closest function parent.
+
+## The call stack and the execution contexts
+
+The call stack is where execution contexts get stacked on top of each other in order to keep track of where we are in the programs execution. The execution context that is in top of the stack is the one that is currently running. And when is finished running it will be removed from the stack, and the execution will go back to the previous execution context.
