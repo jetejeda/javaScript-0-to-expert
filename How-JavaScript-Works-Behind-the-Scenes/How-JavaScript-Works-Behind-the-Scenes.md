@@ -98,3 +98,24 @@ This content is generated in the creation phase which happens right before the e
 ## The call stack and the execution contexts
 
 The call stack is where execution contexts get stacked on top of each other in order to keep track of where we are in the programs execution. The execution context that is in top of the stack is the one that is currently running. And when is finished running it will be removed from the stack, and the execution will go back to the previous execution context.
+
+# Scope and The Scope Chain
+
+- Scoping: Controls how our program's variables are organized and accessed.
+- Lexical scoping: Scoping is controlled by placement of functions and blocks in the code. Lexical scoping means that the way variables are organized and accessed is entirely controlled by the placement of functions and of blocks in the programs code.
+- Scope: Is the space or environment in which a certain variable is declared (variable environment in case of functions). In JavaScript there is a global scope, function scope and block scope
+- Scope of a variable: Region of our code where a certain variable can be accessed
+
+## Scope types in JavaScript
+
+### The global scope
+
+For top-level code (outside of any function or block). The variables declared in global scope are accessible everywhere
+
+### The function scope
+
+Each and every function creates a scope. The variables declared inside that function scope are only accessible inside that function. It is also called a local scope.
+
+They are created for all kinds of functions, so function declarations,
+
+### The block scope
