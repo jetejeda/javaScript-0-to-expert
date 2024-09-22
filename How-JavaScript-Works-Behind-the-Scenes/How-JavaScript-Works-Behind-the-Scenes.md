@@ -116,6 +116,22 @@ For top-level code (outside of any function or block). The variables declared in
 
 Each and every function creates a scope. The variables declared inside that function scope are only accessible inside that function. It is also called a local scope.
 
-They are created for all kinds of functions, so function declarations,
+They are created for all kinds of functions, so function declarations, function expressions and arrow functions all create their own scope.
 
 ### The block scope
+
+Staring in ES6, blocks also creates scopes now. Blocks is everything that is between curly braces. Variables created inside a block are only accessible inside that block. The difference is that this rule only applies to variables declared with let or const, if we create a variable using var, then that variable would still be accessible outside of the block.
+
+All functions are also block scoped (only in strict mode which should always be activated).
+
+### The scope chain
+
+Every scope has access to all the variables from all its outer scopes. This applies for both variables and arguments inside functions.
+
+It's important to keep in mind that the variables are not copied from one scope to another. If the engine can't find a variable in the current scope it will start with a variable lookup in the scope chain until it finds the desired variable or throw an error if it couldn't find the variable. This is only to look at parent scopes, the parent scopes will never have access to the variables from its inner scopes.
+
+Variables declared with var, block scopes don't apply at all. They are function scoped, not block scoped. Let and const on the other hand are block scoped.
+
+## The Scope Chain vs. Call Stack
+
+The scope chain has nothing to do with the order in which functions were called. In other words, the scope chain has nothing to do with the order of execution contexts in the call stack. The scope chain does get the variable environments from the execution context, but that's it.
