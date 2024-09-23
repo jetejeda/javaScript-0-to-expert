@@ -150,15 +150,17 @@ In JS we have a mechanism called hoisting which makes some types of variables ac
 
 Hoisting does not work the same for all variable types.
 
-|                                 | HOISTED? | INITIAL VALUE      | SCOPE    | Special notes                                                                                              |
-| ------------------------------- | :------: | ------------------ | -------- | ---------------------------------------------------------------------------------------------------------- |
-| Function declarations           |   YES    | ACTUAL FUNCTION    | Block    | We can use function declarations before they are actually declared in the code.                            |
-| var variables                   |   YES    | undefined          | Function | When we try to access them before it's declarations, we don't get the declared value, but we get undefined |
-| let and const variables         |    NO    | uninitialized, TDZ | Block    | This variables are placed in a so- called Temporal Dead Zone (TDZ)                                         |
-| function expressions and arrows |          |                    |          | It depends if they were created using var or let/const                                                     |
+|                                 | HOISTED? | INITIAL VALUE      | SCOPE    | Special notes                                                                                                                                                                            |
+| ------------------------------- | :------: | ------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Function declarations           |   YES    | ACTUAL FUNCTION    | Block    | We can use function declarations before they are actually declared in the code.                                                                                                          |
+| var variables                   |   YES    | undefined          | Function | When we try to access them before it's declarations, we don't get the declared value, but we get undefined                                                                               |
+| let and const variables         |    NO    | uninitialized, TDZ | Block    | This variables are placed in a so- called Temporal Dead Zone (TDZ)                                                                                                                       |
+| function expressions and arrows |          |                    |          | It depends if they were created using var or let/const. If we use var it will get the undefined initial value so if while in the TDZ we try to call the function it will throw an error. |
 
 ## Temporal Dead Zone (TDZ)
 
 Is the region of the scope in which the variable is defined, but can't be used in any way. So it is as the variable didn't even exist. If we try to access a variable while in the TDZ for that variable, then we get a reference error telling us that we can't access the variable without initialization. If we try to access a variable that was never even created, we will get a different error message saying that the variable is not defined at all. The difference is that in the first example, the engine knows that eventually the variable will be initialized.
 
 Every let and const variable get their own TDZ that starts at the beginning of the scope until the line where it is defined. Variables are only safe to use after the TDZ. The TDZ approach makes it easier to avoid and catch errors. **Accessing variables before declaration is a bad practice and should be avoided.** This is because using a variable that is set to undefined before it's actually declared can cause serious bugs which might be hard to find.
+
+Even if the TDZ exists, in order to write clean code, we should declare our variables at the top of each scope, declare all our functions first and use them only after the declaration. This applies to all types of functions, even function declarations, which are hoisted.
