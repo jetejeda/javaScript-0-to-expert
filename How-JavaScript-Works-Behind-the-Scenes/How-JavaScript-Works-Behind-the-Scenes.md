@@ -151,10 +151,10 @@ In JS we have a mechanism called hoisting which makes some types of variables ac
 Hoisting does not work the same for all variable types.
 
 |                                 | HOISTED? | INITIAL VALUE      | SCOPE    | Special notes                                                                                              |
-| ------------------------------- | -------- | ------------------ | -------- | ---------------------------------------------------------------------------------------------------------- |
-| Function declarations           | YES      | ACTUAL FUNCTION    | Block    | We can use function declarations before they are actually declared in the code.                            |
-| var variables                   | YES      | undefined          | Function | When we try to access them before it's declarations, we don't get the declared value, but we get undefined |
-| let and const variables         | NO       | uninitialized, TDZ | Block    | This variables are placed in a so- called Temporal Dead Zone (TDZ)                                         |
+| ------------------------------- | :------: | ------------------ | -------- | ---------------------------------------------------------------------------------------------------------- |
+| Function declarations           |   YES    | ACTUAL FUNCTION    | Block    | We can use function declarations before they are actually declared in the code.                            |
+| var variables                   |   YES    | undefined          | Function | When we try to access them before it's declarations, we don't get the declared value, but we get undefined |
+| let and const variables         |    NO    | uninitialized, TDZ | Block    | This variables are placed in a so- called Temporal Dead Zone (TDZ)                                         |
 | function expressions and arrows |          |                    |          | It depends if they were created using var or let/const                                                     |
 
 ## Temporal Dead Zone (TDZ)
