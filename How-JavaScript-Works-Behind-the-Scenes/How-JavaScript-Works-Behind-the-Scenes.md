@@ -139,3 +139,26 @@ The scope chain has nothing to do with the order in which functions were called.
 When we have a the same name for two variables but they are in different scopes, JS will take the value from the first variable that it finds in the scope chain. This is also why we can have different functions with the same parameters names. Because each parameter is only defined in the scope of each function.
 
 When Reassigning the value of a variable from the outer scope it will update the value from the outer scope.
+
+# Variable Environment: Hoisting and the TDZ
+
+## Hoisting in JS
+
+We learned that an execution context always contains a variable environment, the scope chain in the current context and the this keyword.
+
+In JS we have a mechanism called hoisting which makes some types of variables accessible/usable in the code before they are actually declared. Many define this as variables lifted to the top of their scope. Behind the scenes what happens is that the code is scanned for variable declarations before it is executed. This happens during the creation phase of the execution context. Then for each variable that is found in the code, a new property is created in the variable environment object.
+
+Hoisting does not work the same for all variable types.
+
+|                                 | HOISTED? | INITIAL VALUE      | SCOPE    | Special notes                                                                                              |
+| ------------------------------- | -------- | ------------------ | -------- | ---------------------------------------------------------------------------------------------------------- |
+| Function declarations           | YES      | ACTUAL FUNCTION    | Block    | We can use function declarations before they are actually declared in the code.                            |
+| var variables                   | YES      | undefined          | Function | When we try to access them before it's declarations, we don't get the declared value, but we get undefined |
+| let and const variables         | NO       | uninitialized, TDZ | Block    | This variables are placed in a so- called Temporal Dead Zone (TDZ)                                         |
+| function expressions and arrows |          |                    |          | It depends if they were created using var or let/const                                                     |
+
+## Temporal Dead Zone (TDZ)
+
+Is the region of the scope in which the variable is defined, but can't be used in any way. So it is as the variable didn't even exist. If we try to access a variable while in the TDZ for that variable, then we get a reference error telling us that we can't access the variable without initialization. If we try to access a variable that was never even created, we will get a different error message saying that the variable is not defined at all. The difference is that in the first example, the engine knows that eventually the variable will be initialized.
+
+Every let and const variable get their own TDZ that starts at the beginning of the scope until the line where it is defined. Variables are only safe to use after the TDZ. The TDZ approach makes it easier to avoid and catch errors. **Accessing variables before declaration is a bad practice and should be avoided.** This is because using a variable that is set to undefined before it's actually declared can cause serious bugs which might be hard to find.
