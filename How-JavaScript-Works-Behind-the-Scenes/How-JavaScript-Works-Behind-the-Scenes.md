@@ -135,3 +135,7 @@ Variables declared with var, block scopes don't apply at all. They are function 
 ## The Scope Chain vs. Call Stack
 
 The scope chain has nothing to do with the order in which functions were called. In other words, the scope chain has nothing to do with the order of execution contexts in the call stack. The scope chain does get the variable environments from the execution context, but that's it.
+
+When we have a the same name for two variables but they are in different scopes, JS will take the value from the first variable that it finds in the scope chain. This is also why we can have different functions with the same parameters names. Because each parameter is only defined in the scope of each function.
+
+When Reassigning the value of a variable from the outer scope it will update the value from the outer scope.
