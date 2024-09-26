@@ -164,3 +164,22 @@ Is the region of the scope in which the variable is defined, but can't be used i
 Every let and const variable get their own TDZ that starts at the beginning of the scope until the line where it is defined. Variables are only safe to use after the TDZ. The TDZ approach makes it easier to avoid and catch errors. **Accessing variables before declaration is a bad practice and should be avoided.** This is because using a variable that is set to undefined before it's actually declared can cause serious bugs which might be hard to find.
 
 Even if the TDZ exists, in order to write clean code, we should declare our variables at the top of each scope, declare all our functions first and use them only after the declaration. This applies to all types of functions, even function declarations, which are hoisted.
+
+# The this keyword
+
+Is a special variable that is created for every execution context. Takes the value of (points to) the "owner" of the function in which the this keyword is used.
+It is one of the components of every execution context.
+this is NOT static. It depends on how the function is called, and its value is only assigned when the function is actually called.
+
+How can we call a function and interact with the this keyword?
+**There are other ways to call functions but will be covered later on the course**
+
+- As a method from an object. When doing so, the this keyword inside that method will simply point to the object on which the method is called. In other words, it points to the object that is calling the method.
+- Simple function call. The this keyword will be created as undefined while in strict mode, otherwise it will point to the global object in which case of the browser is the Window object.
+- Arrow functions. Even though they are not exactly a way of calling functions, but, arrow functions do not get their own this keyword. Instead, if you use the this variable in an arrow function, it will simply be the this keyword of the surrounding function (it's parent function). In technical terms, this is called the "lexical this keyword".
+- Event listeners. The this keyword will always point to the DOM element that the handler function is attached to.
+
+The this keyword will never point to:
+
+- The function in which we are using it.
+- To the variable environment of the function.

@@ -36,3 +36,42 @@ function calcAge(birthYear) {
 }
 
 console.log(calcAge(1991));
+
+//THE this KEYWORD Examples
+
+function sayHi(name) {
+  console.log(`Hi ${name} nice to meet you!`);
+  //Since we're using strict mode it should be undefined
+  console.log(this);
+}
+
+sayHi("Jose");
+
+const sayHiArrow = (name) => {
+  console.log(`Hi ${name} nice to meet you!`);
+  //It will inherit the this value from the surrounding function
+  //In this case it should be the Window object
+  console.log(this);
+};
+
+sayHiArrow("Jose");
+
+const jose = {
+  name: "Jose",
+  sayHi: function () {
+    console.log(`Hi ${this.name} nice to meet you!`);
+    //Always remember that it will assume the value of the object which called it
+    //Not te value from the object in which it was defined
+    //As shown the juan object
+    console.log(this);
+  },
+};
+
+jose.sayHi();
+
+const juan = {
+  name: "Juan",
+};
+
+juan.referenceFunction = jose.sayHi;
+juan.referenceFunction();
