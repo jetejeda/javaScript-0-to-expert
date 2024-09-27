@@ -183,3 +183,21 @@ The this keyword will never point to:
 
 - The function in which we are using it.
 - To the variable environment of the function.
+
+# Diving deep between Regular functions Vs. Arrow functions
+
+They have many different approaches related the this keyword. These differences will help us to clarify the use cases for each function type, but also, when we should avoid them.
+
+Since arrow functions don't get their own this keyword, they should never be used as method from an object.
+
+## What happens when we have a function inside a method
+
+Since we should always use the strict mode. If we call a function inside a method, the this keyword will be undefined. This is because even if the source of the execution is a method call, the inner function will be executed as a simple function call.
+A solution for this will be to store the this object from the outer function inside a variable (commonly named as self or that) and reference to that variable inside the nested function. Thanks to the scope chain it will lookup in the parent function and set the correct value. This approach is commonly used in older code bases.
+With ES6 the new approach is to create the inner function as an arrow function, in that way it will inherit the this keyword value.
+
+## The arguments keyword
+
+It is only available in regular functions.
+This object is really useful when we need a function to accept more parameters than we actually specified. These extra parameters will not have a name, but they will exist in the arguments array.
+The arrow functions does not get the arguments keyword.

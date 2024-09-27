@@ -69,9 +69,38 @@ const jose = {
 
 jose.sayHi();
 
+//Since we are using var, it will create a property in the window Object
+var name = "global";
 const juan = {
   name: "Juan",
+  birthYear: 1999,
+  //Since it will inherit it from the Window object
+  //it will take the value of name in the Window object
+  //Even though the juan object has its own name property
+  greet: () => console.log(`Hey ${this.name}`),
+
+  calcAge: function () {
+    console.log(new Date().getFullYear() - this.birthYear);
+
+    const isMillennial = function () {
+      //Even if its executed due to the method call
+      //it will be undefined since its just a function call
+      console.log(this);
+    };
+    isMillennial();
+  },
 };
 
 juan.referenceFunction = jose.sayHi;
 juan.referenceFunction();
+juan.greet();
+juan.calcAge();
+
+//THE ARGUMENTS OBJECT
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+addExpr(2, 5);
+addExpr(2, 5, 6, 8, 9);
