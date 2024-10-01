@@ -201,3 +201,55 @@ With ES6 the new approach is to create the inner function as an arrow function, 
 It is only available in regular functions.
 This object is really useful when we need a function to accept more parameters than we actually specified. These extra parameters will not have a name, but they will exist in the arguments array.
 The arrow functions does not get the arguments keyword.
+
+# Primitives vs. Objects (Primitive vs. reference types)
+
+Primitive types create their own memory space. Objects in JS (also known as reference types) only refer to the memory space in which they are allocated.
+In the JS engine all the objects are stored in the MEMORY HEAP, while the primitive types are stored directly on the CALL STACK. Since primitive types are inside the call stack, they really live in the execution context in which they are declared.
+
+Keep in mind that the variables identifiers point to the memory address and not to the value itself.
+
+## Code example with primitive values:
+
+```JavaScript
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age)//31
+console.log(oldAge)//30
+```
+
+**What is happening in the previous example?**
+
+1. A memory address (for example 0001) will hold the 30 value and age will point to that memory address.
+2. OldAge will point to the same address as age.
+3. Since age will have a new value (31) but there is another variable pointing to the same address as age (oldAge) and the value at certain addresses are immutable, so what is going to happen is that a new piece of memory is crated with the new value.
+4. The age identifier now will simply point to the new piece of memory which is holding the new value (31).
+
+## Code example with reference values:
+
+```JavaScript
+const me = {
+    name: 'Jose',
+    age = 24
+};
+
+const friend = me;
+friend.age = 27;
+
+console.log(me.age)//27
+console.log(friend.age)//27
+```
+
+**What is happening in the previous example?**
+
+1. A new object was created and it is stored in the HEAP. Like before, the variable identifier (me) does not point directly to the value, it points to a new piece of memory.
+2. The new piece of memory will be the ond pointing to the object in the HEAP by using the memory address in the HEAP as its value.
+3. The new variable (friend) is created and it will point to the same address as the previous object (me).
+4. The value in the heap is updated, but the value in the call stack memory address remains the same (the reference to the heap address).
+5. both object output the same value since they both point to the same address.
+
+As a summary, the piece of memory in the call stack has a reference to the piece of memory in the heap. It works this way because objects might be too large to be stored in the stack.
+
+In the previous example, even though the friend object was defined as a const, we were able to manipulate the object without problems. This happens because we are not changing the value at the address in which the object is pointing in the call stack, te value that is changing is inside the heap, so the reference in the call stack will remain even the values inside the heap had changed.
+Whenever you think that you're copying an object, you are really just creating a new variable that points to the exact same object.
